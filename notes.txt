@@ -1,0 +1,36 @@
+//initlize current folder as git repo
+git init 
+
+git status
+
+//to add files to staging area
+git add . or git add <filename>
+
+//this cmd wil commit to repo
+git commit -m "first commit"
+
+//git status will show nothying in staging Area
+
+// to check the commit
+git log --oneline
+
+//to revert the changes to previous commit
+git checkout <commitnumber obtaned from log> <filename if we want particular file>
+
+//now changes will be reverted to old commit and old file get reflected in your directory
+//but it also will be staged for a new commit if uou check with git status
+
+//you can reset the staged 
+git reset HEAD index.html 
+//now if git status nothying will be stages
+
+// if you want third commtit file again
+git checkout <commitnumber obtaned from log for third commit> <filename if we want particular file>
+
+//To check out the index.html from the second commit, 
+//find the number of the second commit using the git log, and then type the following at the prompt:
+git checkout <second commit's number> index.html
+
+// to link with remote rep
+git remote add origin https://github.com/anthonysjce/coursera.git
+git push -u origin <branch-name>
