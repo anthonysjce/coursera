@@ -6,3 +6,12 @@ ng new conFusion --style=scss
 cd conFusion
 npm install
 ng serve
+
+npm install @angular/material@6.4.7 --save
+npm install @angular/cdk@6.4.7 --save
+npm install @angular/animations@6.1.7 --save // this is was made seperate module after angular 4
+npm install hammerjs@2.0.8 --save // this is for Gesture
+npm install @angular/flex-layout@6.0.0-beta.18 --save // this is was made seperate module after angular 4
+
+inlcude <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"> in index.html 
