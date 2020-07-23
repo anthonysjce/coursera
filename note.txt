@@ -15,3 +15,11 @@ npm install @angular/flex-layout@6.0.0-beta.18 --save // this is was made sepera
 
 inlcude <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"> in index.html 
+
+npm install font-awesome@4.7.0 --save
+add this _variable.scss
+$fa-font-path : '../node_modules/font-awesome/fonts';
+add this in style.scss
+@import 'variables';
+@import '../node_modules/font-awesome/scss/font-awesome';
+
