@@ -1,0 +1,20 @@
+check https://egghead.io/lessons/javascript-creating-demo-apis-with-json-server
+
+ npm install json-server -g
+ create a new folder named json-server, and move to this folder.
+Download the db.json file provided above to this folder.
+Move to this folder in your terminal window, and type the following at the command prompt to start the server
+
+json-server --watch db.json -d 2000 --- 2000 is the delay in ms
+test
+http://localhost:3000/dishes
+http://localhost:3000/promotions
+
+setting up images
+Create a public folder in your json-server folder
+Download the images.zip file that we provide above, 
+unzip it and move the images folder containing the images to the public folder.
+Restart the json-server as we did before. Now your server will serve up the images for our Angular app. 
+You can view these images by typing the following into your browser address bar:
+
+http://localhost:3000/images/<image name>.png
