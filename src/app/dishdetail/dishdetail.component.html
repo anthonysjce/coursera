@@ -12,6 +12,13 @@ fxLayoutGap.xs="0">
         <mat-card-title>{{dish.name | uppercase}}</mat-card-title>
       </mat-card-header>
       <img mat-card-image src="{{BaseURL + dish.image}}" alt={{dish.name}}>
+      <div [hidden]="dish || errMess">
+        <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+      </div>
+      <div *ngIf="errMess">
+        <h2>Error</h2>
+        <h4>{{errMess}}</h4>
+      </div>
       <mat-card-content>
         <p>
         {{dish.description}}

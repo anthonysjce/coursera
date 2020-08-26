@@ -21,8 +21,10 @@ export class DishdetailComponent implements OnInit {
     dishIds: string[];
     prev: string;
     next: string;
+    errMess;
     newComment:any;
     commentForm:FormGroup;
+    dishcopy: Dish;
     @ViewChild('fform') commentFormDirective;
     formErrors = {
       author:'',
@@ -102,8 +104,9 @@ export class DishdetailComponent implements OnInit {
         switchMap((params:Params) => this.dishService.getDish(params['id']))
         ).subscribe((dish) => {
           this.dish = dish;
+          this.dishcopy = this.dish;
           this.setPrevNext(dish.id);
-        })
+        },errmess => this.errMess = <any>errmess);
 
     }
     setPrevNext(dishId: string) {
@@ -124,7 +127,18 @@ export class DishdetailComponent implements OnInit {
     onSubmit() {
       if(this.newComment){
         this.newComment.date = new Date().toISOString();
-        this.dish.comments.push(this.newComment);
+        //this.dish.comments.push(this.newComment); before implementing save
+        this.dishcopy.comments.push(this.newComment);
+        this.dishService.putDish(this.dishcopy).subscribe(dish => {
+          this.dish = dish;
+          this.dishcopy = this.dish;
+        },errormess => {
+            this.errMess = <any>errormess;
+            this.dish = null; 
+            this.dishcopy = null;
+          }
+        )
+
         this.commentFormDirective.resetForm();
         this.commentForm.controls['rating'].setValue(5);
        /*  this.commentForm.reset({
