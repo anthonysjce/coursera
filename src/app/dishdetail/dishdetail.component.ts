@@ -6,12 +6,18 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { visibility, expand } from '../animations/animation';
+
 
 
 @Component({
   selector: 'app-dishdetail',
   templateUrl: './dishdetail.component.html',
-  styleUrls: ['./dishdetail.component.scss']
+  styleUrls: ['./dishdetail.component.scss'],
+  animations:[
+    visibility(),
+    expand()
+  ]
 })
 
 
@@ -25,6 +31,7 @@ export class DishdetailComponent implements OnInit {
     newComment:any;
     commentForm:FormGroup;
     dishcopy: Dish;
+    visibility = 'shown';
     @ViewChild('fform') commentFormDirective;
     formErrors = {
       author:'',
@@ -101,8 +108,11 @@ export class DishdetailComponent implements OnInit {
 
       this.dishService.getDishIds().subscribe(dishIds => this.dishIds = dishIds );
       this.route.params.pipe(
-        switchMap((params:Params) => this.dishService.getDish(params['id']))
+        switchMap((params:Params) => { 
+          this.visibility = 'hidden';
+          return this.dishService.getDish(params['id']) })
         ).subscribe((dish) => {
+          this.visibility = 'shown';
           this.dish = dish;
           this.dishcopy = this.dish;
           this.setPrevNext(dish.id);

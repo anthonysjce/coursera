@@ -5,11 +5,15 @@ import { DishService } from '../services/dish.service';
 import { PromotionService } from '../services/promotion.service';
 import { Leader } from '../shared/leader';
 import { LeaderService } from '../services/leader.service';
+import { expand } from '../animations/animation';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations : [
+    expand()
+  ]
 })
 export class HomeComponent implements OnInit {
   dish:Dish;
