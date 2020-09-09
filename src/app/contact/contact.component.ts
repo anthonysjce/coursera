@@ -1,11 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Feedback, ContactType } from '../shared/feedback';
+import { FeedbackService } from '../services/feedback.service';
+import { expand } from '../animations/animation';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
+  animations: [
+    expand()
+  ]
 })
 export class ContactComponent implements OnInit {
 
@@ -39,10 +44,13 @@ export class ContactComponent implements OnInit {
   
   feedbackForm:FormGroup;
   feedback:Feedback;
+  errMess;
+  loading = false;
   contactType = ContactType;
   @ViewChild('fform') feedbackFormDirective;
 
-  constructor(private fb:FormBuilder) { 
+  constructor(private fb:FormBuilder,
+    private feedbackService: FeedbackService) { 
     this.createForm();
   }
   createForm(){
@@ -80,9 +88,9 @@ export class ContactComponent implements OnInit {
   }
   onSubmit() {
     //feedback is the dataModel and feedbackForm.value is form Model
-    this.feedback = this.feedbackForm.value;
+    const feedback:Feedback = this.feedbackForm.value;
     console.log(this.feedback);
-    this.feedbackForm.reset({
+    /* this.feedbackForm.reset({
       firstname: '',
       lastname: '',
       telnum: '',
@@ -91,9 +99,34 @@ export class ContactComponent implements OnInit {
       contacttype: 'None',
       message: ''
     });
-    this.feedbackFormDirective.resetForm();
+    this.feedbackFormDirective.resetForm(); */
+    this.loading = true;
+    this.feedbackService.postFeedback(feedback).subscribe(feedback => {
+      this.feedback = feedback;
+      this.loading = false;
+      setTimeout(() =>{
+        this.reset();
+      },5000);
+    },
+      errormess => {
+        this.errMess = <any>errormess;
+        this.reset();
+      });
+  }
+  reset(){
+    this.feedback = null;
+     this.feedbackForm.reset({
+      firstname: '',
+      lastname: '',
+      telnum: '',
+      email: '',
+      agree: false,
+      contacttype: 'None',
+      message: ''
+    });
+    //this.feedbackFormDirective.resetForm();  // this is giving errorCannot read property 'resetForm()' of undefined   
+    this.feedbackForm.reset();
   }
   ngOnInit() {
-  }
-
+  }  
 }
