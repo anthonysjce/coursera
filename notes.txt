@@ -1,7 +1,15 @@
+1) To install Git on your computer, go to https://git-scm.com/downloads to download the Git installer for your specific computing platform.
+2) git --version
+3) go to project folder and 
 //initlize current folder as git repo
 git init 
 
 git status
+
+5) git config --global user.email <your email address>
+
+
+
 
 //to add files to staging area
 git add . or git add <filename>
