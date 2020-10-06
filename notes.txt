@@ -1,0 +1,15 @@
+1) go to https://nodejs.org/ and download  and install current node
+
+2) cmd 
+node -v
+npm -v
+
+3)create a project folder npm-basics and cmd 
+  npm init 
+will create package.json . give index.html when prompted
+
+4) create index.html 
+
+5)npm install lite-server --save-dev
+6) go to lite server documentation https://www.npmjs.com/package/lite-server and see what should be added to package.json
+
