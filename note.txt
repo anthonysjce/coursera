@@ -23,3 +23,9 @@ add this in style.scss
 @import 'variables';
 @import '../node_modules/font-awesome/scss/font-awesome';
 
+/********** installing angular locally
+Step 1: Uninstall the global version of the CLI
+npm uninstall -g @angular/cli
+Step 2: Use npx to create a new project
+npx -p @angular/cli ng new hello-world-project 
+
