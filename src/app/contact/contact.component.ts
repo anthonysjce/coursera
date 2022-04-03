@@ -78,7 +78,7 @@ export class ContactComponent implements OnInit {
         if (control && control.dirty && !control.valid) {
           const messages = this.validationMessages[field];
           for (const key in control.errors) {
-            if (control.errors.hasOwnProperty(key)) {
+            if (messages.hasOwnProperty(key)) {
               this.formErrors[field] += messages[key] + ' ';
             }
           }

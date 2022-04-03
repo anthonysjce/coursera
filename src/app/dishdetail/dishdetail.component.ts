@@ -52,10 +52,11 @@ export class DishdetailComponent implements OnInit {
     constructor(private dishService:DishService,
       private route:ActivatedRoute,
       private location:Location, private fb:FormBuilder,
-      @Inject('BaseURL') private BaseURL) {
+      @Inject('BaseURL') private baseUrl) {
         this.createForm();
+        
     }
-    createForm(){
+    createForm(){      
       this.commentForm = this.fb.group({
         author: ['',[Validators.required,Validators.minLength(2),Validators.maxLength(25)]],
         rating: 5,         
