@@ -1,3 +1,8 @@
+
+node version required for this project - node 9.9.0 and npm will be 5.6.0 (npm version will get automatically)
+json-sever required is npm -g i json-server@0.12.2
+
+
 npm install -g @angular/cli @6.2.1
 
 ng help
@@ -14,7 +19,7 @@ npm install hammerjs@2.0.8 --save // this is for Gesture
 npm install @angular/flex-layout@6.0.0-beta.18 --save // this is was made seperate module after angular 4
 
 inlcude <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"> in index.html 
+      rel="stylesheet"> in index.html
 
 npm install font-awesome@4.7.0 --save
 add this _variable.scss
@@ -27,5 +32,5 @@ add this in style.scss
 Step 1: Uninstall the global version of the CLI
 npm uninstall -g @angular/cli
 Step 2: Use npx to create a new project
-npx -p @angular/cli ng new hello-world-project 
+npx -p @angular/cli ng new hello-world-project
 
