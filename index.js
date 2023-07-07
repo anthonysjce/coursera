@@ -1,7 +1,11 @@
+/* node module example below */
+rect = require('./rectangle');
+
+/* normal example
 rect = {
     perimeter: (x,y) => 2*(x + y),
     area: (x, y) => x * y
-}
+} */
 
 function solveRect(l, b) {
     console.log(`area of the rectangle length ${l} and breadth ${b} is ${rect.area(l,b)}`);
