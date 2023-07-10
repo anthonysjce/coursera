@@ -8,11 +8,17 @@ rect = {
 } */
 
 function solveRect(l, b) {
-    console.log(`area of the rectangle length ${l} and breadth ${b} is ${rect.area(l,b)}`);
-    console.log(`Perimeter of the rectangle length ${l} and breadth ${b} is ${rect.perimeter(l,b)}`);
+     rect(l,b, (data, error) => {
+        if(error) {
+            console.log("ERROR: ", error.message);
+        } else {
+            console.log(`area of the rectangle length ${l} and breadth ${b} is ${data.area()}`);
+            console.log(`Perimeter of the dataangle length ${l} and breadth ${b} is ${data.perimeter()}`);
+        }
+     });   
 }
 
-solveRect(2,4);
+solveRect(2,0);
 solveRect(2,5);
 solveRect(2,6);
 solveRect(2,7);
