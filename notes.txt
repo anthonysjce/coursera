@@ -1,0 +1,27 @@
+download mongodb community server from https://www.mongodb.com/try/download/community-kubernetes-operator
+latest 6.0.0
+but i have downloaded 4.0.28
+
+next download mongosh shell 
+go to products and check for shell
+I have downloaded mongosh-1.101. it is zip file and extracted it a local folder
+
+setting up the env variable
+windowKey+type env and go to env variable edit the path
+and add the bin path of mongodb and shell
+C:\Program Files\MongoDB\Server\4.0\bin
+D:\E\Angular2Projects\coursera\NodeJs\mongosh-1.10.1\bin
+
+
+create a folder called data and db as sub folder in c drive
+C:\data\db
+
+then go to cmd and run  mongo to start the server
+next go to mongosh shell folder click on the exe to start the shell
+
+press enter 
+
+>show dbs --- will show all the db
+>use conFusion -- creates the db if not existing . if existing it will set it as default
+>db.dishes.insert({ name: "Uthappizza", description: "Test" });
+>db.dishes.find().pretty();
