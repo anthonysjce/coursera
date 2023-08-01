@@ -1,0 +1,31 @@
+
+
+MongoDB stores	data	in	the	form	of	
+documents
+• No	structure	imposed	on	the	document
+– Any	document	can	be	stored	in	any	collection
+– Relies	on	developer’s	discipline	to	maintain	the	
+structure	of	the	documents
+
+Mongoose	ODM
+– Object	Data	Model	
+– Object	Document	Mapping
+– Object	relational	mapping	(ORM)
+• Adds	structure	to	MongoDB documents	through	
+schema
+
+Mongoose	Schema
+• Schema:	
+– Structure	of	the	data	to	be	stored
+– Defines	all	the	fields	of	your	document	and	their	types
+• Can	do	validation
+• Schema	types:	String,	Number,	Date,	Buffer,	Boolean,	Mixed,	
+ObjectId,	Array
+• Schema	is	used	to	create	a	Model	function
+• Schemas	can	be	nested	to	enable	supporting	embedded	or	
+subdocuments
+
+to create schema first install
+npm install mongoose@5.1.7 --save
+
+example to create schema is in dishes.js file
