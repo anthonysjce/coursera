@@ -1,0 +1,5 @@
+ npm install express-generator@4.16.0 -g
+
+then >express "name of the serve" -- wil create folder with name of the server and with a scafolding inside
+
+then npm install
