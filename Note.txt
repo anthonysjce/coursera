@@ -3,3 +3,22 @@
 then >express "name of the serve" -- wil create folder with name of the server and with a scafolding inside
 
 then npm install
+
+------
+Integrate with Mongodb 
+npm install mongoose@5.1.7 --save // install mongoose and mongoose currency type
+npm install mongoose-currency@0.2.0 --save
+
+
+
+------ how to run this server
+1) open any cmd prompt >mongod ------------------> will run Mongod server
+2)open mongosh-1.10.1 exe to run the shell and press enter when it shows default connections
+
+>show dbs -- will show the db and
+>use "DB Name" will set the db
+
+after this 
+run the node server 
+for that come to this project folder and open cmd promt and run
+>npm start
